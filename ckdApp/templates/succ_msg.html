@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+{% load static %}
+<div class="jumbotron">
+    <h1>RainFall Prediction</h1>
+    <div class="fieldWrapper">
+        <h2>For the values</h2>
+        <p>maxtemp: {{ data_maxtemp }}</p>
+        <p>dewpoint: {{ data_dewpoint }}</p>
+        <p>humidity: {{ data_humidity }}</p>
+        <p>cloud: {{ data_cloud }}</p>
+        <p>sunshine: {{ data_sunshine }}</p>
+        <p>windspeed: {{ data_windspeed }}</p>
+        <br>
+        {% if out == 1 %}
+            <p>You <b>will have</b> rainfall in the future: <b>Yes</b></p>
+        {% else %}
+            <p>You <b>will not</b> have rainfall in the future: <b>No</b></p>
+        {% endif %}
+        <a href="{% url 'ckdApp:ckd' %}">Predict Again</a>
+        <br>
+    </div>
+</div>
+{% endblock %}
